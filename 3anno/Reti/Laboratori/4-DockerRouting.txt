@@ -1,0 +1,8 @@
+
+Dopo aver configurato le reti necessarie e creato i container con le connessioni appropriate, ho testato i vari comandi descritti nelle slide. Tutti i comandi sembrano funzionare correttamente tranne il ping dal CONTAINER ns2 al CONTAINER ns4. Questo problema è dovuto al fatto che i due container non sono direttamente collegati alla stessa rete. Di conseguenza, quando si tenta di inviare pacchetti tramite il protocollo ICMP, i container non conoscono la strada per raggiungere la destinazione, poiché non sono connessi tramite una rete comune.
+
+L'unico container connesso ad entrambe le reti è ns3. Pertanto, sarà necessario:
+
+Impostare ns3 come gateway predefinito per ns4.
+Aggiungere le regole di routing su ns2.
+Il "default gateway" è il percorso predefinito che un dispositivo utilizza quando deve inviare dati a una rete che non è quella locale.

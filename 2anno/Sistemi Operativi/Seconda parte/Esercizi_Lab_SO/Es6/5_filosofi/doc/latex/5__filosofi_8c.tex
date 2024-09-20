@@ -1,0 +1,261 @@
+\hypertarget{5__filosofi_8c}{}\section{5\+\_\+filosofi.c File Reference}
+\label{5__filosofi_8c}\index{5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/ipc.\+h$>$}\\*
+{\ttfamily \#include $<$sys/sem.\+h$>$}\\*
+{\ttfamily \#include $<$signal.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{5__filosofi_8c_a4193cd1c8c2e6ebd0e056fa2364a663f}{D\+O\+WN}~(-\/1)
+\item 
+\#define \hyperlink{5__filosofi_8c_a1965eaca47dbf3f87acdafc2208f04eb}{UP}~(1)
+\item 
+\#define \hyperlink{5__filosofi_8c_ae71d50065a117f2af80748d4f7d07ae0}{M\+Y\+C\+O\+DE}~\textquotesingle{}a\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{5__filosofi_8c_a7e5e63b16b604bfe1dda13a41b96e4b5}{sem\+\_\+up} (int ipcid, int nsem)
+\begin{DoxyCompactList}\small\item\em Dello zucchero sintattico per fare la UP. \end{DoxyCompactList}\item 
+void \hyperlink{5__filosofi_8c_afa54e0f31b20eb5b3d2b0d6b8aec18b6}{sem\+\_\+down} (int ipcid, int nsem)
+\begin{DoxyCompactList}\small\item\em Dello zucchero sintattico per fare la D\+O\+WN. \end{DoxyCompactList}\item 
+void \hyperlink{5__filosofi_8c_ad4479416be489069e43a17bd246cfe1e}{sem\+\_\+set} (int ipcid, int nsem, int initial)
+\begin{DoxyCompactList}\small\item\em Dello zucchero sintattico per impostare il valore di un semaforo. \end{DoxyCompactList}\item 
+void \hyperlink{5__filosofi_8c_adb638da2ff4ff11a3f73ed5863dc390d}{prendi} (int ipcid, int n\+Sem)
+\begin{DoxyCompactList}\small\item\em Funzione che simula quando il filosofo prende una bacchetta. \end{DoxyCompactList}\item 
+void \hyperlink{5__filosofi_8c_a60e679c6fb56a0677e2f81c68ca33582}{posa} (int ipcid, int n\+Sem)
+\begin{DoxyCompactList}\small\item\em Funzione che simula quando il filosofo posa una bacchetta. \end{DoxyCompactList}\item 
+void \hyperlink{5__filosofi_8c_a7b2b996325aa8aeaba7f3d95298116a2}{filosofo} (int ipcid, int i\+\_\+filos)
+\begin{DoxyCompactList}\small\item\em Codice di prova per i filosofi. \end{DoxyCompactList}\item 
+int \hyperlink{5__filosofi_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}!D\+O\+WN@{D\+O\+WN}}
+\index{D\+O\+WN@{D\+O\+WN}!5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}}
+\subsubsection[{\texorpdfstring{D\+O\+WN}{DOWN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+O\+WN~(-\/1)}\hypertarget{5__filosofi_8c_a4193cd1c8c2e6ebd0e056fa2364a663f}{}\label{5__filosofi_8c_a4193cd1c8c2e6ebd0e056fa2364a663f}
+
+
+Definition at line 21 of file 5\+\_\+filosofi.\+c.
+
+
+
+Referenced by sem\+\_\+up().
+
+\index{5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}!M\+Y\+C\+O\+DE@{M\+Y\+C\+O\+DE}}
+\index{M\+Y\+C\+O\+DE@{M\+Y\+C\+O\+DE}!5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}}
+\subsubsection[{\texorpdfstring{M\+Y\+C\+O\+DE}{MYCODE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+C\+O\+DE~\textquotesingle{}a\textquotesingle{}}\hypertarget{5__filosofi_8c_ae71d50065a117f2af80748d4f7d07ae0}{}\label{5__filosofi_8c_ae71d50065a117f2af80748d4f7d07ae0}
+
+
+Definition at line 23 of file 5\+\_\+filosofi.\+c.
+
+
+
+Referenced by main().
+
+\index{5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}!UP@{UP}}
+\index{UP@{UP}!5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}}
+\subsubsection[{\texorpdfstring{UP}{UP}}]{\setlength{\rightskip}{0pt plus 5cm}\#define UP~(1)}\hypertarget{5__filosofi_8c_a1965eaca47dbf3f87acdafc2208f04eb}{}\label{5__filosofi_8c_a1965eaca47dbf3f87acdafc2208f04eb}
+
+
+Definition at line 22 of file 5\+\_\+filosofi.\+c.
+
+
+
+Referenced by sem\+\_\+up().
+
+
+
+\subsection{Function Documentation}
+\index{5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}!filosofo@{filosofo}}
+\index{filosofo@{filosofo}!5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}}
+\subsubsection[{\texorpdfstring{filosofo(int ipcid, int i\+\_\+filos)}{filosofo(int ipcid, int i_filos)}}]{\setlength{\rightskip}{0pt plus 5cm}void filosofo (
+\begin{DoxyParamCaption}
+\item[{int}]{ipcid, }
+\item[{int}]{i\+\_\+filos}
+\end{DoxyParamCaption}
+)}\hypertarget{5__filosofi_8c_a7b2b996325aa8aeaba7f3d95298116a2}{}\label{5__filosofi_8c_a7b2b996325aa8aeaba7f3d95298116a2}
+
+
+Codice di prova per i filosofi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ipcid} & Riceve il numero dell`oggetto I\+PC\\
+\hline
+\end{DoxyParams}
+Il filosofo pensa e mangia facendo up and down sul semaforo rappresentante le posate. Filosofo Pensa
+
+Filosofo Vuole mangiare 
+
+Definition at line 138 of file 5\+\_\+filosofi.\+c.
+
+
+
+References posa(), and prendi().
+
+
+
+Referenced by main().
+
+\index{5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}!main@{main}}
+\index{main@{main}!5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}}
+\subsubsection[{\texorpdfstring{main()}{main()}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{5__filosofi_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\label{5__filosofi_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}
+inizializza i semafori a 1
+
+ciclo per la creazione dei 5 figli filosofi
+
+Aggiorno contatore dei filosofi creati. Ogni filosofo avrà il giusto numero. 
+
+Definition at line 156 of file 5\+\_\+filosofi.\+c.
+
+
+
+References filosofo(), M\+Y\+C\+O\+DE, and sem\+\_\+set().
+
+\index{5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}!posa@{posa}}
+\index{posa@{posa}!5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}}
+\subsubsection[{\texorpdfstring{posa(int ipcid, int n\+Sem)}{posa(int ipcid, int nSem)}}]{\setlength{\rightskip}{0pt plus 5cm}void posa (
+\begin{DoxyParamCaption}
+\item[{int}]{ipcid, }
+\item[{int}]{n\+Sem}
+\end{DoxyParamCaption}
+)}\hypertarget{5__filosofi_8c_a60e679c6fb56a0677e2f81c68ca33582}{}\label{5__filosofi_8c_a60e679c6fb56a0677e2f81c68ca33582}
+
+
+Funzione che simula quando il filosofo posa una bacchetta. 
+
+
+
+Definition at line 116 of file 5\+\_\+filosofi.\+c.
+
+
+
+References sem\+\_\+up().
+
+
+
+Referenced by filosofo().
+
+\index{5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}!prendi@{prendi}}
+\index{prendi@{prendi}!5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}}
+\subsubsection[{\texorpdfstring{prendi(int ipcid, int n\+Sem)}{prendi(int ipcid, int nSem)}}]{\setlength{\rightskip}{0pt plus 5cm}void prendi (
+\begin{DoxyParamCaption}
+\item[{int}]{ipcid, }
+\item[{int}]{n\+Sem}
+\end{DoxyParamCaption}
+)}\hypertarget{5__filosofi_8c_adb638da2ff4ff11a3f73ed5863dc390d}{}\label{5__filosofi_8c_adb638da2ff4ff11a3f73ed5863dc390d}
+
+
+Funzione che simula quando il filosofo prende una bacchetta. 
+
+
+
+Definition at line 100 of file 5\+\_\+filosofi.\+c.
+
+
+
+References sem\+\_\+down().
+
+
+
+Referenced by filosofo().
+
+\index{5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}!sem\+\_\+down@{sem\+\_\+down}}
+\index{sem\+\_\+down@{sem\+\_\+down}!5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}}
+\subsubsection[{\texorpdfstring{sem\+\_\+down(int ipcid, int nsem)}{sem_down(int ipcid, int nsem)}}]{\setlength{\rightskip}{0pt plus 5cm}void sem\+\_\+down (
+\begin{DoxyParamCaption}
+\item[{int}]{ipcid, }
+\item[{int}]{nsem}
+\end{DoxyParamCaption}
+)}\hypertarget{5__filosofi_8c_afa54e0f31b20eb5b3d2b0d6b8aec18b6}{}\label{5__filosofi_8c_afa54e0f31b20eb5b3d2b0d6b8aec18b6}
+
+
+Dello zucchero sintattico per fare la D\+O\+WN. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ipcid} & Riceve il numero dell`oggetto I\+PC \\
+\hline
+{\em nsem} & Il semaforo su cui fare D\+O\+WN\\
+\hline
+\end{DoxyParams}
+Questa chiamata maschera i dettagli implementativi sul buffer delle operazioni I\+PC 
+
+Definition at line 65 of file 5\+\_\+filosofi.\+c.
+
+
+
+Referenced by prendi(), and sem\+\_\+up().
+
+\index{5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}!sem\+\_\+set@{sem\+\_\+set}}
+\index{sem\+\_\+set@{sem\+\_\+set}!5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}}
+\subsubsection[{\texorpdfstring{sem\+\_\+set(int ipcid, int nsem, int initial)}{sem_set(int ipcid, int nsem, int initial)}}]{\setlength{\rightskip}{0pt plus 5cm}void sem\+\_\+set (
+\begin{DoxyParamCaption}
+\item[{int}]{ipcid, }
+\item[{int}]{nsem, }
+\item[{int}]{initial}
+\end{DoxyParamCaption}
+)}\hypertarget{5__filosofi_8c_ad4479416be489069e43a17bd246cfe1e}{}\label{5__filosofi_8c_ad4479416be489069e43a17bd246cfe1e}
+
+
+Dello zucchero sintattico per impostare il valore di un semaforo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ipcid} & Riceve il numero dell`oggetto I\+PC \\
+\hline
+{\em nsem} & Il semaforo da impostare \\
+\hline
+{\em initial} & Il valore iniziale del semaforo\\
+\hline
+\end{DoxyParams}
+Questa chiamata maschera i dettagli implementativi sul buffer delle operazioni I\+PC 
+
+Definition at line 87 of file 5\+\_\+filosofi.\+c.
+
+
+
+Referenced by main().
+
+\index{5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}!sem\+\_\+up@{sem\+\_\+up}}
+\index{sem\+\_\+up@{sem\+\_\+up}!5\+\_\+filosofi.\+c@{5\+\_\+filosofi.\+c}}
+\subsubsection[{\texorpdfstring{sem\+\_\+up(int ipcid, int nsem)}{sem_up(int ipcid, int nsem)}}]{\setlength{\rightskip}{0pt plus 5cm}void sem\+\_\+up (
+\begin{DoxyParamCaption}
+\item[{int}]{ipcid, }
+\item[{int}]{nsem}
+\end{DoxyParamCaption}
+)}\hypertarget{5__filosofi_8c_a7e5e63b16b604bfe1dda13a41b96e4b5}{}\label{5__filosofi_8c_a7e5e63b16b604bfe1dda13a41b96e4b5}
+
+
+Dello zucchero sintattico per fare la UP. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ipcid} & Riceve il numero dell`oggetto I\+PC \\
+\hline
+{\em nsem} & Il semaforo su cui fare UP\\
+\hline
+\end{DoxyParams}
+Questa chiamata maschera i dettagli implementativi sul buffer delle operazioni I\+PC 
+
+Definition at line 46 of file 5\+\_\+filosofi.\+c.
+
+
+
+References D\+O\+WN, sem\+\_\+down(), and UP.
+
+
+
+Referenced by posa().
+

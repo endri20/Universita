@@ -1,0 +1,46 @@
+%%There is just one section and two subsections.
+\section{Esercizio 1}
+ 
+\subsection{Esplorate il vostro file system. \\
+Qual \`e il pathname della vostra home directory?}
+
+\textbf{Da terminale:}	\\
+\verb:> cd:	 \\
+\verb:> pwd:  \\
+\verb:/Users/Aldo:  \\
+
+
+\subsection{Visualizzate i file della vostra home directory ordinati in base alla data di ultima modifica.}
+
+\textbf{Da terminale:}		\\
+\verb:> ls -t:	\\
+ 
+
+\subsection{Che differenza c’\`e tra i comandi cat, more, tail?}
+
+- \textbf{cat}: concatena i file, stampando il risultato
+dell'operazione.	\\
+- \textbf{more}: filtro che serve a visualizzare sullo schermo un
+flusso di testo, una pagina per volta.	\\
+- \textbf{tail}: stampa su standard output le ultime 10 righe dei
+file, forniti come argomenti.	\\
+
+
+\subsection{Trovate un modo per ottenere l’elenco delle subdirectory contenute ricorsivamente nella vostra home.}
+
+\textbf{Da terminale:}		\\
+\verb:> ls -R:	\\
+
+
+\subsection{I seguenti comandi che effetto producono? Perch\`e?}
+\texttt{> cd	\\
+> mkdir d1	\\
+> chmod 444	d1	\\
+> cd d1	\\}
+\\
+- \textbf{cd}: la directory corrente diventa quella della home	\\
+- \textbf{mkdir d1}: crea la directory di nome "dl" nella directory
+corrente	\\
+- \textbf{chmode 444 d1}: assegna permessi \verb:r--r--r--: a d1	\\
+- \textbf{cd d1}: la directory corrente dovrebbe diventare d1 (se
+si hanno i permessi)	\\

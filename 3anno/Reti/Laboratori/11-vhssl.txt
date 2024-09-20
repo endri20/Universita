@@ -1,0 +1,76 @@
+1. Creo la directory /etc/nginx/certificate all'interno di ns2:
+
+docker-compose -f docker-compose.yaml up -d
+docker exec -it ns2 bash
+root@ns2:/# mkdir /etc/nginx/certificate
+root@ns2:/# cd /etc/nginx/certificate
+
+2) Creo una chiave privata
+root@1db56df66862:/etc/nginx/certificate# openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out nginx-certificate.crt -keyout nginx.key
+.+...+.+........+......+....+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*.+.............+.....+...+..........+..+.......+.....+...+..........+..+.......+...+...+..+.+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*..+......+....+............+...+..+.........+.+..+.......+..............+......+.+.........+...+........+....+.........+......+...+.....+......+......................+..+..........+..+.+....................+............+.+......+......+...+.....+....+..+...+.+.................+..................+.......+.....+...+.........+..........+..+..................+............+.+..+.+......+.....+................+...............+...+..+...+................+.........+......+.....................+..+.+.....+......+....+......+...+...+.........+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+....+......+......+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*.+.......+.....+.+...........+....+..+...............+...++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*...+.....+......+.+............+...........+.......+..+.+..+.......+...........+.+.......+...+.....+.........+.......+...........+...+.........+...+.......+..+....+..+.......+........+............+..........+........+.......+...+...+...............+.........+..+.+.....+....+...+...+............+...+...+...........+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+
+Country Name (2 letter code) [AU]:IT
+State or Province Name (full name) [Some-State]:Piacenza 
+Locality Name (eg, city) []:Pontenure
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+Organizational Unit Name (eg, section) []:
+Common Name (e.g. server FQDN or YOUR name) []:
+Email Address []:
+
+3)Modifico il file di configurazione nginx './etc/nginx/sites-available/default':
+
+root@ns2:/# nano ./etc/nginx/sites-available/default
+
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        server_name _;
+        return 301 https://$host$request_uri;
+}
+server {
+        listen 443 ssl default_server;
+        listen [::]:443 ssl default_server;
+        ssl_certificate /etc/nginx/certificate/nginx-certificate.crt;
+        ssl_certificate_key /etc/nginx/certificate/nginx.key;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+        server_name _;
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+
+4)Riavvio il servizio nginx:
+
+root@ns2:/# service nginx restart
+ * Restarting nginx nginx
+
+Verifico che il servizio sia attivo:
+tcp        0      0 0.0.0.0:443             0.0.0.0:*               LISTEN      1/nginx: master pro
+tcp        0      0 172.21.0.28:443         172.21.0.1:53432        TIME_WAIT   -
+tcp6       0      0 :::443                  :::*                    LISTEN      1/nginx: master pro
+
+Faccio una richiesta https con curl, al server ns2:
+curl --insecure https://172.21.0.28/1-VirtualLinux.txt
+mi risponde con il documento
+
+
+7. Eseguiamo il prossimo comando per verificare i parametri scambiati nel protocollo SSL handshake:
+
+openssl s_client -connect 172.21.0.28:443
+
+subject=C = IT, ST = Piacenza, CN = 172.21.0.28
+Post-Handshake New Session Ticket arrived:
+SSL-Session:
+    Protocol  : TLSv1.3
+    Cipher    : TLS_AES_256_GCM_SHA384
+    Resumption PSK: 106B70554E3C36778D0C17D51BB7109FC368DDDB384F8659F1048950927FEEB66C5BE0D93C33629A6B03F0ADAB2F0446

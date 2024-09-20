@@ -1,0 +1,14 @@
+\begin{theindex}
+
+  \item {ex\+Creazione\+Thread.\+c}, \hyperpage{5}
+    \subitem {main}, \hyperpage{5}
+    \subitem {my\+\_\+thread}, \hyperpage{5}
+
+  \indexspace
+
+  \item {main}
+    \subitem {ex\+Creazione\+Thread.\+c}, \hyperpage{5}
+  \item {my\+\_\+thread}
+    \subitem {ex\+Creazione\+Thread.\+c}, \hyperpage{5}
+
+\end{theindex}

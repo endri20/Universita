@@ -1,0 +1,68 @@
+Genero le chiavi
+
+chiave privata RSA crittografata 'endri_rsa_key.pem' con 2048 bit:
+$ openssl genrsa -des3 -out endri_rsa_key.pem 2048
+.+......+...+....+...+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+.....+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+....+...+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+...+.+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++....................+....+......+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.+.+..+......+.......+.....+...............+..........+..+..........+..+....+....................+....+..+.+........+.........+...+...+.+...+...+..+...........................+...............+....+......+......+...+..+..........+..+.......+.....+.........+....+.....+...+....+...+..+....+.....+....+..+......+....+..........+...+.........+......+....+.........................................+.+......+.....+.........+...+.......+...+.....+...+.......+......+......+...+..+....+......+...............+......+..+...+..........+.....+.......+..+.+...+..............+......+.......+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Enter PEM pass phrase:
+Verifying - Enter PEM pass phrase:
+
+corrispondente chiave pubblica :
+$ openssl rsa -in endri_rsa_key.pem -outform PEM -pubout -out endri_rsa_pub.pem
+Enter pass phrase for endri_rsa_key.pem
+writing RSA key
+
+creo il file 'toencrypt.txt' con la chiave pubblica RSA di 2048 bit:
+$ du -a ~/html/RETI2324/ > toencrypt.txt
+
+Cifro il contenuto del file utilizzando la chiave pubblica RSA di 2048 bit:
+openssl rsautl -encrypt -pubin -inkey endri_rsa_pub.pem -in toencrypt.txt -out toencrypt.enc
+
+Decripto con la nuova chiave privata il file 'toencrypt.enc' criptato in precedenza e verifico che funziona:
+openssl rsautl -in toencrypt.enc -out todecrypt.dec -inkey endri_rsa_key.pem -decrypt
+Enter pass phrase for endri_rsa_key.pem:
+
+Crea i file creare i file toencrypt.b64, toencrypt.aes256, toencrypt.sha1
+toencrypt.hmac , toencrypt.rsa_sign (firmato con la chiave privata RSA),
+
+openssl rsautl -sign -inkey endri_rsa_key.pem -in toencrypt.txt -out toencrypt.rsa_sign
+Enter pass phrase for endri_rsa_key.pem:
+
+Cifro 'toencrypt.txt' in base64: openssl base64 -in toencrypt.txt -out toencrypt.b64
+
+
+Cifro 'toencrypt.txt' con aes256
+openssl enc -e -aes256 -in toencrypt.txt -out toencrypt.aes256
+enter aes-256-cbc encryption password:
+Verifying - enter aes-256-cbc encryption password:
+*** WARNING : deprecated key derivation used.
+Using -iter or -pbkdf2 would be better
+
+
+Il messaggio di avvertimento che ho ricevuto riguarda il fatto che la modalita' di derivazione della chiave utilizzata e' obsoleta
+
+
+openssl sha1 -hex -out toencrypt.sha1 toencrypt.txt
+
+cifro 'toencrypt.txt' con hmac:
+openssl dgst -sha256 -hmac endri -out toencrypt.hmac toencrypt.txt
+
+Scarica la chiave pubblica del professore:
+wget http://didattica-linux.unipr.it/~roberto.alfieri@unipr.it/matdid/RETI/security/rsa/alfieri_rsa_pub.pem
+
+Cifro il file 'toencrypt.txt' con la chiave pubblica 'alfieri_rsa_pub.pem':
+openssl rsautl -encrypt -pubin -inkey alfieri_rsa_pub.pem -in toencrypt.txt -out toencrypt.rsa_crypt
+
+Crea il Message Digest:
+openssl dgst -sha1 -sign endri_rsa_key.pem -out toencrypt.sha1_signed toencrypt.txt
+Enter pass phrase for endri_rsa_key.pem:
+
+Verifico il Digest utilizzando la chiave pubblica 'endri_rsa_pub.pem':
+openssl dgst -sha1 -verify endri_rsa_pub.pem -signature toencrypt.sha1_signed toencrypt.txt
+Verified OK.
+
+
+
+
+
+

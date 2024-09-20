@@ -1,0 +1,234 @@
+\hypertarget{sem_8c}{}\section{sem.\+c File Reference}
+\label{sem_8c}\index{sem.\+c@{sem.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/ipc.\+h$>$}\\*
+{\ttfamily \#include $<$sys/sem.\+h$>$}\\*
+{\ttfamily \#include $<$signal.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sem_8c_a4193cd1c8c2e6ebd0e056fa2364a663f}{D\+O\+WN}~(-\/1)
+\item 
+\#define \hyperlink{sem_8c_a1965eaca47dbf3f87acdafc2208f04eb}{UP}~(1)
+\item 
+\#define \hyperlink{sem_8c_ae71d50065a117f2af80748d4f7d07ae0}{M\+Y\+C\+O\+DE}~\textquotesingle{}a\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{sem_8c_a7e5e63b16b604bfe1dda13a41b96e4b5}{sem\+\_\+up} (int ipcid, int nsem)
+\begin{DoxyCompactList}\small\item\em Dello zucchero sintattico per fare la UP. \end{DoxyCompactList}\item 
+void \hyperlink{sem_8c_afa54e0f31b20eb5b3d2b0d6b8aec18b6}{sem\+\_\+down} (int ipcid, int nsem)
+\begin{DoxyCompactList}\small\item\em Dello zucchero sintattico per fare la D\+O\+WN. \end{DoxyCompactList}\item 
+void \hyperlink{sem_8c_ad4479416be489069e43a17bd246cfe1e}{sem\+\_\+set} (int ipcid, int nsem, int initial)
+\begin{DoxyCompactList}\small\item\em Dello zucchero sintattico per impostare il valore di un semaforo. \end{DoxyCompactList}\item 
+void \hyperlink{sem_8c_a0c84dc725c0d1002cdc0735543e64ed6}{padre} (int ipcid)
+\begin{DoxyCompactList}\small\item\em Codice di prova per il padre. \end{DoxyCompactList}\item 
+void \hyperlink{sem_8c_ad9b9cd736604fc1513208ed66fe0fa4d}{figlio} (int ipcid)
+\begin{DoxyCompactList}\small\item\em Codice di prova per il figlio. \end{DoxyCompactList}\item 
+int \hyperlink{sem_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{sem.\+c@{sem.\+c}!D\+O\+WN@{D\+O\+WN}}
+\index{D\+O\+WN@{D\+O\+WN}!sem.\+c@{sem.\+c}}
+\subsubsection[{\texorpdfstring{D\+O\+WN}{DOWN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+O\+WN~(-\/1)}\hypertarget{sem_8c_a4193cd1c8c2e6ebd0e056fa2364a663f}{}\label{sem_8c_a4193cd1c8c2e6ebd0e056fa2364a663f}
+
+
+Definition at line 21 of file sem.\+c.
+
+
+
+Referenced by sem\+\_\+up().
+
+\index{sem.\+c@{sem.\+c}!M\+Y\+C\+O\+DE@{M\+Y\+C\+O\+DE}}
+\index{M\+Y\+C\+O\+DE@{M\+Y\+C\+O\+DE}!sem.\+c@{sem.\+c}}
+\subsubsection[{\texorpdfstring{M\+Y\+C\+O\+DE}{MYCODE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+C\+O\+DE~\textquotesingle{}a\textquotesingle{}}\hypertarget{sem_8c_ae71d50065a117f2af80748d4f7d07ae0}{}\label{sem_8c_ae71d50065a117f2af80748d4f7d07ae0}
+
+
+Definition at line 23 of file sem.\+c.
+
+
+
+Referenced by main().
+
+\index{sem.\+c@{sem.\+c}!UP@{UP}}
+\index{UP@{UP}!sem.\+c@{sem.\+c}}
+\subsubsection[{\texorpdfstring{UP}{UP}}]{\setlength{\rightskip}{0pt plus 5cm}\#define UP~(1)}\hypertarget{sem_8c_a1965eaca47dbf3f87acdafc2208f04eb}{}\label{sem_8c_a1965eaca47dbf3f87acdafc2208f04eb}
+
+
+Definition at line 22 of file sem.\+c.
+
+
+
+Referenced by sem\+\_\+up().
+
+
+
+\subsection{Function Documentation}
+\index{sem.\+c@{sem.\+c}!figlio@{figlio}}
+\index{figlio@{figlio}!sem.\+c@{sem.\+c}}
+\subsubsection[{\texorpdfstring{figlio(int ipcid)}{figlio(int ipcid)}}]{\setlength{\rightskip}{0pt plus 5cm}void figlio (
+\begin{DoxyParamCaption}
+\item[{int}]{ipcid}
+\end{DoxyParamCaption}
+)}\hypertarget{sem_8c_ad9b9cd736604fc1513208ed66fe0fa4d}{}\label{sem_8c_ad9b9cd736604fc1513208ed66fe0fa4d}
+
+
+Codice di prova per il figlio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ipcid} & Riceve il numero dell`oggetto I\+PC\\
+\hline
+\end{DoxyParams}
+Il figlio fa Pong e fa UP sul semaforo del padre 
+
+Definition at line 121 of file sem.\+c.
+
+
+
+References sem\+\_\+down(), and sem\+\_\+up().
+
+
+
+Referenced by main().
+
+\index{sem.\+c@{sem.\+c}!main@{main}}
+\index{main@{main}!sem.\+c@{sem.\+c}}
+\subsubsection[{\texorpdfstring{main()}{main()}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{sem_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\label{sem_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}
+inizializza il semaforo 0 a 1
+
+inizializza il semaforo 1 a 0 
+
+Definition at line 132 of file sem.\+c.
+
+
+
+References figlio(), M\+Y\+C\+O\+DE, padre(), and sem\+\_\+set().
+
+\index{sem.\+c@{sem.\+c}!padre@{padre}}
+\index{padre@{padre}!sem.\+c@{sem.\+c}}
+\subsubsection[{\texorpdfstring{padre(int ipcid)}{padre(int ipcid)}}]{\setlength{\rightskip}{0pt plus 5cm}void padre (
+\begin{DoxyParamCaption}
+\item[{int}]{ipcid}
+\end{DoxyParamCaption}
+)}\hypertarget{sem_8c_a0c84dc725c0d1002cdc0735543e64ed6}{}\label{sem_8c_a0c84dc725c0d1002cdc0735543e64ed6}
+
+
+Codice di prova per il padre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ipcid} & Riceve il numero dell`oggetto I\+PC\\
+\hline
+\end{DoxyParams}
+Il Padre fa Ping e fa UP sul semaforo del figlio 
+
+Definition at line 104 of file sem.\+c.
+
+
+
+References sem\+\_\+down(), and sem\+\_\+up().
+
+
+
+Referenced by main().
+
+\index{sem.\+c@{sem.\+c}!sem\+\_\+down@{sem\+\_\+down}}
+\index{sem\+\_\+down@{sem\+\_\+down}!sem.\+c@{sem.\+c}}
+\subsubsection[{\texorpdfstring{sem\+\_\+down(int ipcid, int nsem)}{sem_down(int ipcid, int nsem)}}]{\setlength{\rightskip}{0pt plus 5cm}void sem\+\_\+down (
+\begin{DoxyParamCaption}
+\item[{int}]{ipcid, }
+\item[{int}]{nsem}
+\end{DoxyParamCaption}
+)}\hypertarget{sem_8c_afa54e0f31b20eb5b3d2b0d6b8aec18b6}{}\label{sem_8c_afa54e0f31b20eb5b3d2b0d6b8aec18b6}
+
+
+Dello zucchero sintattico per fare la D\+O\+WN. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ipcid} & Riceve il numero dell`oggetto I\+PC \\
+\hline
+{\em nsem} & Il semaforo su cui fare D\+O\+WN\\
+\hline
+\end{DoxyParams}
+Questa chiamata maschera i dettagli implementativi sul buffer delle operazioni I\+PC 
+
+Definition at line 66 of file sem.\+c.
+
+
+
+Referenced by figlio(), padre(), and sem\+\_\+up().
+
+\index{sem.\+c@{sem.\+c}!sem\+\_\+set@{sem\+\_\+set}}
+\index{sem\+\_\+set@{sem\+\_\+set}!sem.\+c@{sem.\+c}}
+\subsubsection[{\texorpdfstring{sem\+\_\+set(int ipcid, int nsem, int initial)}{sem_set(int ipcid, int nsem, int initial)}}]{\setlength{\rightskip}{0pt plus 5cm}void sem\+\_\+set (
+\begin{DoxyParamCaption}
+\item[{int}]{ipcid, }
+\item[{int}]{nsem, }
+\item[{int}]{initial}
+\end{DoxyParamCaption}
+)}\hypertarget{sem_8c_ad4479416be489069e43a17bd246cfe1e}{}\label{sem_8c_ad4479416be489069e43a17bd246cfe1e}
+
+
+Dello zucchero sintattico per impostare il valore di un semaforo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ipcid} & Riceve il numero dell`oggetto I\+PC \\
+\hline
+{\em nsem} & Il semaforo da impostare \\
+\hline
+{\em initial} & Il valore iniziale del semaforo\\
+\hline
+\end{DoxyParams}
+Questa chiamata maschera i dettagli implementativi sul buffer delle operazioni I\+PC 
+
+Definition at line 87 of file sem.\+c.
+
+
+
+Referenced by main().
+
+\index{sem.\+c@{sem.\+c}!sem\+\_\+up@{sem\+\_\+up}}
+\index{sem\+\_\+up@{sem\+\_\+up}!sem.\+c@{sem.\+c}}
+\subsubsection[{\texorpdfstring{sem\+\_\+up(int ipcid, int nsem)}{sem_up(int ipcid, int nsem)}}]{\setlength{\rightskip}{0pt plus 5cm}void sem\+\_\+up (
+\begin{DoxyParamCaption}
+\item[{int}]{ipcid, }
+\item[{int}]{nsem}
+\end{DoxyParamCaption}
+)}\hypertarget{sem_8c_a7e5e63b16b604bfe1dda13a41b96e4b5}{}\label{sem_8c_a7e5e63b16b604bfe1dda13a41b96e4b5}
+
+
+Dello zucchero sintattico per fare la UP. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ipcid} & Riceve il numero dell`oggetto I\+PC \\
+\hline
+{\em nsem} & Il semaforo su cui fare UP\\
+\hline
+\end{DoxyParams}
+Questa chiamata maschera i dettagli implementativi sul buffer delle operazioni I\+PC 
+
+Definition at line 47 of file sem.\+c.
+
+
+
+References D\+O\+WN, sem\+\_\+down(), and UP.
+
+
+
+Referenced by figlio(), and padre().
+

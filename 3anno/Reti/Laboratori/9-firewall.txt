@@ -1,0 +1,33 @@
+
+Configurazione della rete Docker
+Abbiamo configurato una rete Docker chiamata docker-routing. All'interno di questa rete, abbiamo tre container: ns2, ns3 e ns4. 
+Il container ns3 agisce come default gateway per la rete 172.22.0.0/24.
+
+Sistemazione del routing tra ns2 e ns4 via ns3
+Abbiamo riscontrato che il ping tra ns2 e ns4 non funzionava inizialmente. Tuttavia, dopo aver aggiunto e modificato 
+le rotte utilizzando i comandi ip route add e ip route del default, il ping è stato reso possibile.
+
+
+Configurazione delle regole IPTABLES su ns3
+Abbiamo configurato iptables su ns3 per consentire il passaggio del traffico HTTP e bloccare tutto il resto. Le regole sono state definite come segue:
+
+
+Tutti i pacchetti in stato ESTABLISHED sono accettati.
+I pacchetti TCP destinati alla porta 80 (HTTP) in ingresso sull'interfaccia eth0 sono accettati.
+La policy di default per il FORWARD è stata impostata su DROP per bloccare tutti i pacchetti non corrispondenti alle regole specificate.
+Verifica del corretto funzionamento delle regole
+
+
+Abbiamo eseguito diversi test per verificare il corretto funzionamento delle regole di iptables:
+
+-Test del passaggio del traffico HTTP:
+Utilizzando il comando curl, abbiamo inviato una richiesta HTTP da ns2 a ns4 per ottenere il file "prova.html". 
+Il test è stato eseguito con successo, confermando che il traffico HTTP è stato consentito attraverso ns3.
+
+-Test del blocco del traffico non consentito:
+Abbiamo tentato di eseguire altre richieste di rete tra ns2, ns3 e ns4 che non fossero HTTP. 
+Tutti i tentativi sono stati bloccati come previsto, confermando che solo il traffico HTTP è stato consentito attraverso ns3.
+
+
+La configurazione del firewall utilizzando iptables su ns3 è stata completata con successo. Il traffico HTTP è stato consentito attraverso ns3 mentre tutto il resto è stato bloccato, garantendo una maggiore sicurezza della rete.
+

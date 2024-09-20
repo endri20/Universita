@@ -1,0 +1,33 @@
+L'obiettivo di questa attività è stato quello di creare un container utilizzando l'immagine nginx-ssh in Docker, assegnando un indirizzo IP statico 
+specifico (172.21.0.xx) e attivando il port forwarding per esporre i servizi del container sulle porte 20xx (per SSH) e 80xx (per HTTP), dove "xx" 
+rappresenta il mio numero nell'elenco dei partecipanti al corso.
+
+Per fare la consegna ho creato un file cocker-compose.yml:
+
+	version: "3"
+
+networks: 
+  bridge1:
+    name: bridge1
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/24
+
+
+services:
+  ns2:
+    container_name: ns2
+    hostname: ns2
+    image: nginx-ssh
+    networks:
+      bridge1:
+        ipv4_address: 172.21.0.2  
+    ports:
+      - "2077:22"
+      - "8096:80"
+    volumes: //percorso 
+
+L'assegnazione di un IP statico e l'attivazione del port forwarding in Docker sono operazioni fondamentali per la gestione e la configurazione dei 
+container, specialmente in ambienti di sviluppo e produzione. Questa attività ha fornito una buona comprensione dei concetti di rete e di configurazione 
+dei container in Docker.

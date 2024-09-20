@@ -1,0 +1,160 @@
+\hypertarget{lettori__scrittori_8c}{}\section{lettori\+\_\+scrittori.\+c File Reference}
+\label{lettori__scrittori_8c}\index{lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$semaphore.\+h$>$}\\*
+{\ttfamily \#include $<$pthread.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{lettori__scrittori_8c_a541a536d1ccaa1690bc2b2c60d30dfc7}{D\+I\+M\+\_\+\+B\+U\+F\+F\+ER}~100
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{lettori__scrittori_8c_aebf37786f699b5cfb31ed0950d4bb5b3}{lettore} (void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em Codice del lettore. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{lettori__scrittori_8c_aeb66655d626d26e57316b60d30f02131}{scrittore} (void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em Codice dello scrittore. \end{DoxyCompactList}\item 
+int \hyperlink{lettori__scrittori_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static sem\+\_\+t \hyperlink{lettori__scrittori_8c_a2b0cddb30665d6b6fa87f8fa4779221a}{sem\+\_\+lettore}
+\item 
+static sem\+\_\+t \hyperlink{lettori__scrittori_8c_ab23bd69591cea372183681951e790e65}{sem\+\_\+scrittore}
+\item 
+int \hyperlink{lettori__scrittori_8c_aa69531a956e7c8d713b738fc4c3d9730}{A} \mbox{[}\hyperlink{lettori__scrittori_8c_a541a536d1ccaa1690bc2b2c60d30dfc7}{D\+I\+M\+\_\+\+B\+U\+F\+F\+ER}\mbox{]}
+\begin{DoxyCompactList}\small\item\em semafori \end{DoxyCompactList}\item 
+int \hyperlink{lettori__scrittori_8c_a2f9dc2de048155e72277ab81cc0943a9}{n\+Lettori}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}!D\+I\+M\+\_\+\+B\+U\+F\+F\+ER@{D\+I\+M\+\_\+\+B\+U\+F\+F\+ER}}
+\index{D\+I\+M\+\_\+\+B\+U\+F\+F\+ER@{D\+I\+M\+\_\+\+B\+U\+F\+F\+ER}!lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}}
+\subsubsection[{\texorpdfstring{D\+I\+M\+\_\+\+B\+U\+F\+F\+ER}{DIM_BUFFER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+I\+M\+\_\+\+B\+U\+F\+F\+ER~100}\hypertarget{lettori__scrittori_8c_a541a536d1ccaa1690bc2b2c60d30dfc7}{}\label{lettori__scrittori_8c_a541a536d1ccaa1690bc2b2c60d30dfc7}
+
+
+Definition at line 17 of file lettori\+\_\+scrittori.\+c.
+
+
+
+Referenced by lettore(), and main().
+
+
+
+\subsection{Function Documentation}
+\index{lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}!lettore@{lettore}}
+\index{lettore@{lettore}!lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}}
+\subsubsection[{\texorpdfstring{lettore(void $\ast$arg)}{lettore(void *arg)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ lettore (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)}\hypertarget{lettori__scrittori_8c_aebf37786f699b5cfb31ed0950d4bb5b3}{}\label{lettori__scrittori_8c_aebf37786f699b5cfb31ed0950d4bb5b3}
+
+
+Codice del lettore. 
+
+Il thread legge dal buffer condiviso e lo stampa, in mutua esclusione con lo scrittore 
+
+Definition at line 28 of file lettori\+\_\+scrittori.\+c.
+
+
+
+References A, D\+I\+M\+\_\+\+B\+U\+F\+F\+ER, n\+Lettori, sem\+\_\+lettore, and sem\+\_\+scrittore.
+
+
+
+Referenced by main().
+
+\index{lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}!main@{main}}
+\index{main@{main}!lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}}
+\subsubsection[{\texorpdfstring{main()}{main()}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{lettori__scrittori_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\label{lettori__scrittori_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+Definition at line 84 of file lettori\+\_\+scrittori.\+c.
+
+
+
+References A, D\+I\+M\+\_\+\+B\+U\+F\+F\+ER, lettore(), n\+Lettori, scrittore(), sem\+\_\+lettore, and sem\+\_\+scrittore.
+
+\index{lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}!scrittore@{scrittore}}
+\index{scrittore@{scrittore}!lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}}
+\subsubsection[{\texorpdfstring{scrittore(void $\ast$arg)}{scrittore(void *arg)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ scrittore (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)}\hypertarget{lettori__scrittori_8c_aeb66655d626d26e57316b60d30f02131}{}\label{lettori__scrittori_8c_aeb66655d626d26e57316b60d30f02131}
+
+
+Codice dello scrittore. 
+
+Il thread scrive sul buffer condiviso a intervalli di 5 secondi 
+
+Definition at line 67 of file lettori\+\_\+scrittori.\+c.
+
+
+
+References A, and sem\+\_\+scrittore.
+
+
+
+Referenced by main().
+
+
+
+\subsection{Variable Documentation}
+\index{lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}!A@{A}}
+\index{A@{A}!lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}}
+\subsubsection[{\texorpdfstring{A}{A}}]{\setlength{\rightskip}{0pt plus 5cm}int A\mbox{[}{\bf D\+I\+M\+\_\+\+B\+U\+F\+F\+ER}\mbox{]}}\hypertarget{lettori__scrittori_8c_aa69531a956e7c8d713b738fc4c3d9730}{}\label{lettori__scrittori_8c_aa69531a956e7c8d713b738fc4c3d9730}
+
+
+semafori 
+
+
+
+Definition at line 20 of file lettori\+\_\+scrittori.\+c.
+
+
+
+Referenced by lettore(), main(), and scrittore().
+
+\index{lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}!n\+Lettori@{n\+Lettori}}
+\index{n\+Lettori@{n\+Lettori}!lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}}
+\subsubsection[{\texorpdfstring{n\+Lettori}{nLettori}}]{\setlength{\rightskip}{0pt plus 5cm}int n\+Lettori}\hypertarget{lettori__scrittori_8c_a2f9dc2de048155e72277ab81cc0943a9}{}\label{lettori__scrittori_8c_a2f9dc2de048155e72277ab81cc0943a9}
+
+
+Definition at line 21 of file lettori\+\_\+scrittori.\+c.
+
+
+
+Referenced by lettore(), and main().
+
+\index{lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}!sem\+\_\+lettore@{sem\+\_\+lettore}}
+\index{sem\+\_\+lettore@{sem\+\_\+lettore}!lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}}
+\subsubsection[{\texorpdfstring{sem\+\_\+lettore}{sem_lettore}}]{\setlength{\rightskip}{0pt plus 5cm}sem\+\_\+t sem\+\_\+lettore\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{lettori__scrittori_8c_a2b0cddb30665d6b6fa87f8fa4779221a}{}\label{lettori__scrittori_8c_a2b0cddb30665d6b6fa87f8fa4779221a}
+
+
+Definition at line 19 of file lettori\+\_\+scrittori.\+c.
+
+
+
+Referenced by lettore(), and main().
+
+\index{lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}!sem\+\_\+scrittore@{sem\+\_\+scrittore}}
+\index{sem\+\_\+scrittore@{sem\+\_\+scrittore}!lettori\+\_\+scrittori.\+c@{lettori\+\_\+scrittori.\+c}}
+\subsubsection[{\texorpdfstring{sem\+\_\+scrittore}{sem_scrittore}}]{\setlength{\rightskip}{0pt plus 5cm}sem\+\_\+t sem\+\_\+scrittore\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{lettori__scrittori_8c_ab23bd69591cea372183681951e790e65}{}\label{lettori__scrittori_8c_ab23bd69591cea372183681951e790e65}
+
+
+Definition at line 19 of file lettori\+\_\+scrittori.\+c.
+
+
+
+Referenced by lettore(), main(), and scrittore().
+

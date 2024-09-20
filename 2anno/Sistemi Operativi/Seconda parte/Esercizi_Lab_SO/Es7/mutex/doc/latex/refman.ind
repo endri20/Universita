@@ -1,0 +1,38 @@
+\begin{theindex}
+
+  \item {accessi1}
+    \subitem {mutex.\+c}, \hyperpage{6}
+  \item {accessi2}
+    \subitem {mutex.\+c}, \hyperpage{6}
+
+  \indexspace
+
+  \item {D\+A\+TA}
+    \subitem {mutex.\+c}, \hyperpage{6}
+
+  \indexspace
+
+  \item {M}
+    \subitem {mutex.\+c}, \hyperpage{6}
+  \item {M\+AX}
+    \subitem {mutex.\+c}, \hyperpage{5}
+  \item {main}
+    \subitem {mutex.\+c}, \hyperpage{6}
+  \item {mutex.\+c}, \hyperpage{5}
+    \subitem {accessi1}, \hyperpage{6}
+    \subitem {accessi2}, \hyperpage{6}
+    \subitem {D\+A\+TA}, \hyperpage{6}
+    \subitem {M}, \hyperpage{6}
+    \subitem {M\+AX}, \hyperpage{5}
+    \subitem {main}, \hyperpage{6}
+    \subitem {thread1\+\_\+process}, \hyperpage{6}
+    \subitem {thread2\+\_\+process}, \hyperpage{6}
+
+  \indexspace
+
+  \item {thread1\+\_\+process}
+    \subitem {mutex.\+c}, \hyperpage{6}
+  \item {thread2\+\_\+process}
+    \subitem {mutex.\+c}, \hyperpage{6}
+
+\end{theindex}

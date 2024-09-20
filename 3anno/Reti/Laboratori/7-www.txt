@@ -1,0 +1,47 @@
+Relazione sull'attività di configurazione del server Web con pagine dinamiche e virtual host utilizzando NGINX
+
+Configurazione Generale di NGINX:
+
+Ho configurato NGINX sul mio host Ubuntu seguendo le istruzioni fornite nella documentazione ufficiale. Le principali directory e file di configurazione sono stati individuati nei seguenti percorsi:
+
+Configurazione generale: /etc/nginx/nginx.conf
+Configurazione del server predefinito: /etc/nginx/site-enabled/default
+Directory radice: /var/www/html/
+Logs: /var/log/nginx/
+
+Configurazione dello script CGI:
+
+Ho installato fcgiwrap per supportare gli script CGI seguendo la guida disponibile. Le operazioni eseguite includono:
+
+Installazione di fcgiwrap tramite apt install fcgiwrap.
+Configurazione di /etc/nginx/sites-available/default per includere fcgiwrap.conf.
+Reload del servizio NGINX.
+
+Configurazione di PHP:
+
+Ho configurato PHP per l'esecuzione di script PHP sul server NGINX. Le fasi principali includono:
+
+Installazione di php-fpm tramite apt install php-fpm.
+Aggiunta di configurazioni PHP al file di configurazione del server NGINX.
+Reload del servizio NGINX.
+
+Autenticazione di Base:
+
+Ho implementato l'autenticazione di base utilizzando NGINX e il pacchetto apache2-utils per la gestione delle password. Le operazioni svolte sono state:
+
+Installazione di apache2-utils.
+Creazione di un file di autenticazione .htpasswd.
+Modifica del file di configurazione di NGINX per abilitare l'autenticazione di base.
+Creazione di una directory sicura e inserimento di un documento per testare l'autenticazione.
+
+Configurazione del Virtual Host:
+
+Ho configurato un virtual host denominato "vh1" sulla porta 90. Le azioni eseguite includono:
+
+Modifica del file di configurazione di NGINX per abilitare il virtual host.
+Creazione della directory del virtual host e inserimento di un file index.html.
+Reload del servizio NGINX.
+
+Conclusioni:
+
+Durante questa attività, ho configurato con successo un server Web utilizzando NGINX su un host Ubuntu. Sono stati abilitati gli script CGI, PHP è stato configurato per l'esecuzione di pagine dinamiche e sono stati implementati sia l'autenticazione di base che un virtual host. Ogni passaggio è stato eseguito seguendo le istruzioni fornite e sono state testate le funzionalità attraverso l'accesso tramite browser e curl.

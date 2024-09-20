@@ -1,0 +1,28 @@
+GET /1-VirtualLinux.txt HTTP/1.1
+Host: 172.17.0.2
+User-Agent: curl/7.88.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Server: nginx/1.22.0 (Ubuntu)
+Date: Sun, 17 Mar 2024 23:44:22 GMT
+Content-Type: text/plain
+Content-Length: 2355
+Last-Modified: Sun, 17 Mar 2024 23:32:30 GMT
+Connection: keep-alive
+ETag: "65242902-923"
+Accept-Ranges: bytes
+
+
+Dopo aver seguito attentamente le istruzioni fornite sul sito ufficiale di Docker Engine, ho proceduto con l'installazione del software sul mio sistema. 
+Successivamente, ho scaricato l'ultima versione di Ubuntu con Nginx utilizzando il comando "docker pull ubuntu/nginx". Ho quindi avviato un container 
+basato su questa immagine con il comando "docker run -d --name ng1 ubuntu/nginx". Per personalizzare il comportamento del container, ho apportato delle 
+modifiche al file "docker-entrypoint.sh", avviando anche il servizio SSH tramite la linea "/etc/init.d/ssh start". Inoltre, ho installato i pacchetti
+ necessari elencati e ho verificato il corretto funzionamento del servizio SSH. Successivamente, ho creato una nuova immagine chiamata "nginx-ssh" 
+utilizzando il comando "docker commit ng1 nginx-ssh". Ho quindi seguito le istruzioni delle slide per creare un file Dockerfile, assicurandomi di 
+correggere eventuali errori riguardanti gli apici. Ho anche creato un file "docker-entrypoint.sh" contenente il codice precedentemente copiato. 
+Utilizzando il comando "docker build -t nginx-ssh2 .", ho generato un'immagine contenente tutti i pacchetti necessari. Per la creazione dei container 
+"ns1" e "ns2", ho utilizzato un file "docker-compose.yaml". Ho quindi installato l'utilità "docker-compose" tramite il gestore dei pacchetti "apt". 
+Infine, ho verificato gli indirizzi IP assegnati ai container appena creati utilizzando il comando "ip a", e ho stabilito una connessione SSH
+ da "ns1" a "ns2" tramite il comando "ssh ubuntu@127.17.04". 
+Ho anche confermato la corretta operatività della connessione creando un file in "ns2" da "ns1".

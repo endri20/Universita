@@ -1,0 +1,123 @@
+.TH "lettori_scrittori.c" 3 "Sun Jun 26 2016" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+lettori_scrittori.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <unistd\&.h>\fP
+.br
+\fC#include <semaphore\&.h>\fP
+.br
+\fC#include <pthread\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBDIM_BUFFER\fP   100"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void * \fBlettore\fP (void *arg)"
+.br
+.RI "\fICodice del lettore\&. \fP"
+.ti -1c
+.RI "void * \fBscrittore\fP (void *arg)"
+.br
+.RI "\fICodice dello scrittore\&. \fP"
+.ti -1c
+.RI "int \fBmain\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static sem_t \fBsem_lettore\fP"
+.br
+.ti -1c
+.RI "static sem_t \fBsem_scrittore\fP"
+.br
+.ti -1c
+.RI "int \fBA\fP [\fBDIM_BUFFER\fP]"
+.br
+.RI "\fIsemafori \fP"
+.ti -1c
+.RI "int \fBnLettori\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define DIM_BUFFER   100"
+
+.PP
+Definition at line 17 of file lettori_scrittori\&.c\&.
+.PP
+Referenced by lettore(), and main()\&.
+.SH "Function Documentation"
+.PP 
+.SS "void* lettore (void * arg)"
+
+.PP
+Codice del lettore\&. Il thread legge dal buffer condiviso e lo stampa, in mutua esclusione con lo scrittore 
+.PP
+Definition at line 28 of file lettori_scrittori\&.c\&.
+.PP
+References A, DIM_BUFFER, nLettori, sem_lettore, and sem_scrittore\&.
+.PP
+Referenced by main()\&.
+.SS "int main ()"
+
+.PP
+Definition at line 84 of file lettori_scrittori\&.c\&.
+.PP
+References A, DIM_BUFFER, lettore(), nLettori, scrittore(), sem_lettore, and sem_scrittore\&.
+.SS "void* scrittore (void * arg)"
+
+.PP
+Codice dello scrittore\&. Il thread scrive sul buffer condiviso a intervalli di 5 secondi 
+.PP
+Definition at line 67 of file lettori_scrittori\&.c\&.
+.PP
+References A, and sem_scrittore\&.
+.PP
+Referenced by main()\&.
+.SH "Variable Documentation"
+.PP 
+.SS "int A[\fBDIM_BUFFER\fP]"
+
+.PP
+semafori 
+.PP
+Definition at line 20 of file lettori_scrittori\&.c\&.
+.PP
+Referenced by lettore(), main(), and scrittore()\&.
+.SS "int nLettori"
+
+.PP
+Definition at line 21 of file lettori_scrittori\&.c\&.
+.PP
+Referenced by lettore(), and main()\&.
+.SS "sem_t sem_lettore\fC [static]\fP"
+
+.PP
+Definition at line 19 of file lettori_scrittori\&.c\&.
+.PP
+Referenced by lettore(), and main()\&.
+.SS "sem_t sem_scrittore\fC [static]\fP"
+
+.PP
+Definition at line 19 of file lettori_scrittori\&.c\&.
+.PP
+Referenced by lettore(), main(), and scrittore()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

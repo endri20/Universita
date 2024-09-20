@@ -1,0 +1,95 @@
+%%There is just one section and two subsections.
+\section{Esercizio 2}
+
+\subsection{Scrivete un unico comando (pipeline) per: \\
+1) copiare il contenuto della directory dir1 nella directory dir2; \\
+2) fornire il numero di file (e directory) a cui avete accesso, contenuti
+ricorsivamente nella directory studenti (si pu\`o utilizzare ''ls -R'' e il
+comando ''find''); \\
+3) fornire la lista dei file della home directory il cui nome \`e una stringa di
+ 3 caratteri seguita da un numero.}
+1) \verb: > cp ~r dir1 dir2: \\
+2) \verb: > find ~ 2>/dev/null | wc -l: \\
+3) \verb: > ls ~/???[0-9]: \\
+
+
+\subsection{Qual \`e la differenza tra i seguenti comandi?}
+\verb:> ls:	\\
+\verb:> ls | cat:	\\
+\verb:> ls | more:	\\
+\\
+- \verb:ls:: stampa la lista dei file contenuti nella directory corrente,
+disposti in righe e colonne in ordine alfabetico. \\
+- \verb:ls | cat:: stampa la lista dei file contenuti nella directory
+corrente disposti su un unica colonna in ordine alfabetico. \\
+- \verb:ls | more:: stampa la lista dei file contenuti nella directory
+corrente disposti in ordine alfabetico, in colonna e organizzando l'output su
+schermo in pagine. \\
+
+
+\subsection{Quale effetto producono i seguenti comandi?}
+\verb:> uniq < file (dove file `e il nome di un file): \\
+\verb:> who | wc -l:	\\
+\verb:> ps -e | wc -l:	\\
+\\
+- \verb:uniq < file:: stampa il contenuto del file, sostituentdo le
+linee adiacenti uguali con un'unica occorrenza. \\
+- \verb:who | wc -l:: Stampa il numero di utenti collegati al
+sistema. \\
+- \verb:ps -e | wc -l:: Stampa il numero di processi + 1; il +1 è la
+linea intestazione prodotta da ls. \\
+
+
+\subsection{Ridefinire il comando ''rm'' in modo tale che non sia chiesta
+conferma prima della cancellazione dei file}
+\verb:> alias rm='rm -f': \\
+
+
+\subsection{Definire il comando ''rmi'' (rm interattivo) che chiede conferma
+prima di rimuovere un file.}
+\verb:> alias rmi='rm -i': \\
+
+
+\subsection{Sapendo che il comando ''ps'' serve ad elencare i processi del
+sistema, scrivere una pipeline che fornisca in output il numero di tutti i processi in esecuzione.}
+\verb:> ps -e --no-headers | wc -l: \\
+
+
+\subsection{Salvare in un file di testo l’output dell’ultimo evento contenente
+il comando ''ls''.}
+\verb:> ls | more > Scrivania/relazioni/file_out_ls.txt: \\
+
+
+\subsection{Scrivere un comando che fornisce il numero dei comandi contenuti nella history list}
+\verb:> history | wc -l: \\
+
+
+\subsection{Scrivere un comando che fornisce i primi 15 comandi della history list}
+\verb:> history | head -15: \\
+
+
+\subsection{Quali sono i comandi Unix disponibili nel sistema che iniziano con
+''lo''?}
+\verb:> lo + il tasto 'tab' 2 volte: \\
+
+
+\subsection{Fornire almeno due modi diversi per ottenere la lista dei file della
+vostra home directory il cui nome inizia con ''al''.}
+\verb:> ls ~/al il tasto 'tab' + il tasto 'tab': \\
+\verb:> ls al*: \\
+
+
+\subsection{Qual \`e l’effetto dei seguenti comandi?}
+\verb:> ls -R || (echo file non accessibili > tmp): \\
+\verb:> (who | grep rossi) && cd ~rossi: \\
+\verb:> (cd / ; pwd ; ls | wc -l ):	\\
+\\
+\verb:- ls -R || (echo file non accessibili > tmp):: stampa la lista ricorsiva
+dei file contenuti nella directory corrente; nel caso in cui ls -R
+fallisca, stampa il messaggio 'file non accessibili' nel file tmp nella
+directory corrente. \\
+\verb:- (who | grep rossi) && cd ~rossi:: la directory corrente cambia in quella
+dell'utente rossi (se questo è collegato al sistema)
+\\
+\verb:- (cd / ; pwd ; ls | wc -l ):: cambia la directory corrente in /, la
+stampa (con 'pwd') e stampa il numero di elementi contenuti nella dir corrente \\

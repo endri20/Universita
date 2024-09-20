@@ -1,0 +1,67 @@
+\hypertarget{esempiofork_8c}{}\section{esempiofork.\+c File Reference}
+\label{esempiofork_8c}\index{esempiofork.\+c@{esempiofork.\+c}}
+
+
+File principale.  
+
+
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$sys/wait.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{esempiofork_8c_ab946e2e7f7679350627acfded8e2658b}{T\+E\+ST}\hypertarget{esempiofork_8c_ab946e2e7f7679350627acfded8e2658b}{}\label{esempiofork_8c_ab946e2e7f7679350627acfded8e2658b}
+
+\begin{DoxyCompactList}\small\item\em Macro globale. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{esempiofork_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em E\textquotesingle{} la funzione principale. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{esempiofork_8c_a641790cd524e40a148a1376998102e25}{temp}\hypertarget{esempiofork_8c_a641790cd524e40a148a1376998102e25}{}\label{esempiofork_8c_a641790cd524e40a148a1376998102e25}
+
+\begin{DoxyCompactList}\small\item\em Variabile globale. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File principale. 
+
+\begin{DoxyAuthor}{Author}
+Aldo Tragni 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+15/03/2016 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{esempiofork.\+c@{esempiofork.\+c}!main@{main}}
+\index{main@{main}!esempiofork.\+c@{esempiofork.\+c}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$argv[])}{main(int argc, char *argv[])}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{esempiofork_8c_a0ddf1224851353fc92bfbff6f499fa97}{}\label{esempiofork_8c_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+E\textquotesingle{} la funzione principale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & e\textquotesingle{} il numero di argomenti \\
+\hline
+{\em argv} & e\textquotesingle{} vettore degli argomenti \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 = Esecuzione terminata con successo 
+
+-\/1 = Esecuzione ha generato errore
+\end{DoxyReturn}
+Questa funzione serve per lanciare un processo figlio, attendendo fino alla sua terminazione. Riceve il valore di ritorno del figlio 

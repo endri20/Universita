@@ -1,0 +1,147 @@
+\hypertarget{mutex_8c}{}\section{mutex.\+c File Reference}
+\label{mutex_8c}\index{mutex.\+c@{mutex.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$pthread.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{mutex_8c_a392fb874e547e582e9c66a08a1f23326}{M\+AX}~10
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{mutex_8c_a29fffaae0768ebd2236bacc8a28cedec}{thread1\+\_\+process} (void $\ast$arg)
+\item 
+void $\ast$ \hyperlink{mutex_8c_aecf48b4b8a8aba4f3dd424dda88f922c}{thread2\+\_\+process} (void $\ast$arg)
+\item 
+int \hyperlink{mutex_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+pthread\+\_\+mutex\+\_\+t \hyperlink{mutex_8c_aecc8a4f9a4d3eac208dab4c3088a8033}{M}
+\item 
+int \hyperlink{mutex_8c_a90abc41b8456616fcc2191b4631d1887}{D\+A\+TA} =0
+\item 
+int \hyperlink{mutex_8c_a565de84661fd52f7b49849922926de7b}{accessi1} =0
+\item 
+int \hyperlink{mutex_8c_a561b5fa76b66aa4e26c2b251582221a1}{accessi2} =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{mutex.\+c@{mutex.\+c}!M\+AX@{M\+AX}}
+\index{M\+AX@{M\+AX}!mutex.\+c@{mutex.\+c}}
+\subsubsection[{\texorpdfstring{M\+AX}{MAX}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+AX~10}\hypertarget{mutex_8c_a392fb874e547e582e9c66a08a1f23326}{}\label{mutex_8c_a392fb874e547e582e9c66a08a1f23326}
+
+
+Definition at line 4 of file mutex.\+c.
+
+
+
+Referenced by thread1\+\_\+process(), and thread2\+\_\+process().
+
+
+
+\subsection{Function Documentation}
+\index{mutex.\+c@{mutex.\+c}!main@{main}}
+\index{main@{main}!mutex.\+c@{mutex.\+c}}
+\subsubsection[{\texorpdfstring{main()}{main()}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{mutex_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\label{mutex_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+Definition at line 53 of file mutex.\+c.
+
+
+
+References accessi1, accessi2, M, thread1\+\_\+process(), and thread2\+\_\+process().
+
+\index{mutex.\+c@{mutex.\+c}!thread1\+\_\+process@{thread1\+\_\+process}}
+\index{thread1\+\_\+process@{thread1\+\_\+process}!mutex.\+c@{mutex.\+c}}
+\subsubsection[{\texorpdfstring{thread1\+\_\+process(void $\ast$arg)}{thread1_process(void *arg)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ thread1\+\_\+process (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)}\hypertarget{mutex_8c_a29fffaae0768ebd2236bacc8a28cedec}{}\label{mutex_8c_a29fffaae0768ebd2236bacc8a28cedec}
+
+
+Definition at line 23 of file mutex.\+c.
+
+
+
+References accessi1, D\+A\+TA, M, and M\+AX.
+
+
+
+Referenced by main().
+
+\index{mutex.\+c@{mutex.\+c}!thread2\+\_\+process@{thread2\+\_\+process}}
+\index{thread2\+\_\+process@{thread2\+\_\+process}!mutex.\+c@{mutex.\+c}}
+\subsubsection[{\texorpdfstring{thread2\+\_\+process(void $\ast$arg)}{thread2_process(void *arg)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ thread2\+\_\+process (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)}\hypertarget{mutex_8c_aecf48b4b8a8aba4f3dd424dda88f922c}{}\label{mutex_8c_aecf48b4b8a8aba4f3dd424dda88f922c}
+
+
+Definition at line 38 of file mutex.\+c.
+
+
+
+References accessi2, D\+A\+TA, M, and M\+AX.
+
+
+
+Referenced by main().
+
+
+
+\subsection{Variable Documentation}
+\index{mutex.\+c@{mutex.\+c}!accessi1@{accessi1}}
+\index{accessi1@{accessi1}!mutex.\+c@{mutex.\+c}}
+\subsubsection[{\texorpdfstring{accessi1}{accessi1}}]{\setlength{\rightskip}{0pt plus 5cm}int accessi1 =0}\hypertarget{mutex_8c_a565de84661fd52f7b49849922926de7b}{}\label{mutex_8c_a565de84661fd52f7b49849922926de7b}
+
+
+Definition at line 20 of file mutex.\+c.
+
+
+
+Referenced by main(), and thread1\+\_\+process().
+
+\index{mutex.\+c@{mutex.\+c}!accessi2@{accessi2}}
+\index{accessi2@{accessi2}!mutex.\+c@{mutex.\+c}}
+\subsubsection[{\texorpdfstring{accessi2}{accessi2}}]{\setlength{\rightskip}{0pt plus 5cm}int accessi2 =0}\hypertarget{mutex_8c_a561b5fa76b66aa4e26c2b251582221a1}{}\label{mutex_8c_a561b5fa76b66aa4e26c2b251582221a1}
+
+
+Definition at line 21 of file mutex.\+c.
+
+
+
+Referenced by main(), and thread2\+\_\+process().
+
+\index{mutex.\+c@{mutex.\+c}!D\+A\+TA@{D\+A\+TA}}
+\index{D\+A\+TA@{D\+A\+TA}!mutex.\+c@{mutex.\+c}}
+\subsubsection[{\texorpdfstring{D\+A\+TA}{DATA}}]{\setlength{\rightskip}{0pt plus 5cm}int D\+A\+TA =0}\hypertarget{mutex_8c_a90abc41b8456616fcc2191b4631d1887}{}\label{mutex_8c_a90abc41b8456616fcc2191b4631d1887}
+
+
+Definition at line 18 of file mutex.\+c.
+
+
+
+Referenced by thread1\+\_\+process(), and thread2\+\_\+process().
+
+\index{mutex.\+c@{mutex.\+c}!M@{M}}
+\index{M@{M}!mutex.\+c@{mutex.\+c}}
+\subsubsection[{\texorpdfstring{M}{M}}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t M}\hypertarget{mutex_8c_aecc8a4f9a4d3eac208dab4c3088a8033}{}\label{mutex_8c_aecc8a4f9a4d3eac208dab4c3088a8033}
+
+
+Definition at line 16 of file mutex.\+c.
+
+
+
+Referenced by main(), thread1\+\_\+process(), and thread2\+\_\+process().
+

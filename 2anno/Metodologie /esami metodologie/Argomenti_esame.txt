@@ -1,0 +1,24 @@
+Richiami sul linguaggio C++: tipi di dato; espressioni; istruzioni; funzioni; campo d'azione e ciclo di vita; funzioni sovraccaricate; classi.
+
+Introduzione ai costrutti dello standard ISO C++ 2011.
+
+Programmazione per contratto: pre-condizioni, post-condizioni ed invarianti di classe.
+
+Inizializzazione, assegnamento e distruzione; copia e spostamento.
+
+Eccezioni e gestione delle risorse; tecniche per la gestione dinamica della memoria.
+
+Ereditarietà semplice: differenze tra contenimento, ereditarietà privata ed ereditarietà pubblica.
+
+Polimorfismo dinamico: funzioni virtuali; il principio di sostituzione di Liskov.
+
+Progetto di interfacce software: tipi concreti, tipi astratti, classi di interfaccia e classi implementative; ereditarietà multipla e virtuale.
+
+Polimorfismo statico: template di funzione e template di classe.
+
+La libreria standard STL: contenitori, iteratori ed algoritmi generici; oggetti funzione.
+
+Ambiente di sviluppo: il compilatore g++; il debugger gdb; automazione del processo di compilazione: make; controllo delle versioni: git.
+
+Documentazione di interfacce software: doxygen.
+

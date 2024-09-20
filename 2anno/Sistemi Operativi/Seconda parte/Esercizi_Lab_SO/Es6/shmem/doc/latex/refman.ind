@@ -1,0 +1,14 @@
+\begin{theindex}
+
+  \item {main}
+    \subitem {shmem.\+c}, \hyperpage{5}
+
+  \indexspace
+
+  \item {S\+I\+ZE}
+    \subitem {shmem.\+c}, \hyperpage{5}
+  \item {shmem.\+c}, \hyperpage{5}
+    \subitem {main}, \hyperpage{5}
+    \subitem {S\+I\+ZE}, \hyperpage{5}
+
+\end{theindex}

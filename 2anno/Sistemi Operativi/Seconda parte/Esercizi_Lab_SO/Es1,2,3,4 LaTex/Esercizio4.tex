@@ -1,0 +1,117 @@
+%%There is just one section and two subsections.
+\section{Esercizio 4}
+
+\subsection{Progettare uno script drawsquare che prende in input un parametro intero
+con valore da 2 a 15 e disegna sullo standard output un quadrato.}
+
+Esempio:
+\begin{lstlisting}
+> drawsquare 4
++ - - +
+|     |
+|     |
++ - - +
+\end{lstlisting}
+
+\textbf{\\Codice:}
+\begin{lstlisting}
+if test $# -ne 1
+   then
+   echo 'Utilizzo dello script: drawsquare <n>'
+   exit 1
+fi
+
+if test $1 -le 2 -o $1 -ge 51
+   then
+   echo 'Il parametro deve essere un numero in [3;50]'
+   exit 2
+fi
+x=$1 
+y=$1 
+while test $y -gt 0
+   do
+   while test $x -gt 0
+   	 do
+	 if test $x -eq 1 -o $x -eq $1
+	    then 
+	    if test $y -eq 1 -o $y -eq $1
+	       then
+	       echo -n "+ "
+	    else
+	       echo -n "| "
+	    fi
+	 else 
+	      if test $y -eq 1 -o $y -eq $1
+		 then
+		 echo -n "- "
+	      else
+		 echo -n "  "
+	      fi
+	 fi
+	 x=$[$x-1]
+   done
+   x=$1
+   y=$[$y-1]
+   echo
+done
+exit 0
+\end{lstlisting}
+
+
+\subsection{Progettare uno script che prende in input come parametro il nome di una directory e cancella tutti i file con nome core dall’albero di directory con radice la directory parametro.}
+
+\textbf{\\ Codice:}
+\begin{lstlisting}
+if test $# -ne 1
+then
+	echo 'Utilizzo dello script: rmcore <dir>'
+	exit 1
+fi
+
+if ! test -d $1 # Gestione degli errori.
+then
+	echo "$1 deve essere una directory"
+	exit 2
+fi
+
+find $1 -name core -exec rm {} \; 2>/dev/null
+
+exit 0
+\end{lstlisting}
+
+
+\subsection{Progettare uno utility-script processi per la gestione user-friendly
+dei processi in memoria. Le operazioni di base sono gestite tramite un semplice
+menu testuale con input da tastiera. \\
+- Visualizzazione processi di un utente selezionato (PID, CPU e riga comando che
+lo ha generato) \\
+- Implementare una versione di top minimale, con un ordinamento in base all’uso
+CPU, e con la fotografia del momento, senza aggiornamenti. \\
+- Possibilit\`a di kill -9 su un processo utente, su tutti i processi (sempre
+con un comodo menu) \\
+- Ogni funzione attivata ritorna nel menu principale di
+scelta}
+
+\textbf{\\ Codice:}
+\begin{lstlisting}
+echo "MENU: ";
+echo "1) Visualizza i processi di un utente selezionato";
+echo "2) Top minimale (con ordinamento in base alla CPU)";
+echo "3) Kill -9 su un processo utente, su tutti i processi";
+echo " ";
+echo "Scegli una delle opzioni: ";
+
+read opt;
+if [ $opt -lt 1 -o $opt -gt 4 ]
+then
+	echo "Scelta non valida!";
+fi
+
+case $opt in
+	1) echo "inserisci il nome di un utente:"
+		read username; ps -u $username ;;
+	2) top ;;
+	3) echo "inserisci il PID del processo da eliminare:";
+		read pid;kill -9 $pid ;;
+esac
+\end{lstlisting}

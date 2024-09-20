@@ -1,0 +1,87 @@
+.TH "semthread.c" 3 "Sun Jun 26 2016" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+semthread.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <unistd\&.h>\fP
+.br
+\fC#include <semaphore\&.h>\fP
+.br
+\fC#include <pthread\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void * \fBthread1\fP (void *arg)"
+.br
+.RI "\fIsemafori \fP"
+.ti -1c
+.RI "void * \fBthread2\fP (void *arg)"
+.br
+.RI "\fICodice del thread2 Il thread fa Pong e fa UP sul semaforo dell`altro thread\&. \fP"
+.ti -1c
+.RI "int \fBmain\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static sem_t \fBs1\fP"
+.br
+.ti -1c
+.RI "static sem_t \fBs2\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int main ()"
+
+.PP
+Definition at line 52 of file semthread\&.c\&.
+.PP
+References s1, s2, thread1(), and thread2()\&.
+.SS "void* thread1 (void * arg)"
+
+.PP
+semafori Codice del thread1 Il thread fa Ping e fa UP sul semaforo dell`altro thread 
+.PP
+Definition at line 23 of file semthread\&.c\&.
+.PP
+References s1, and s2\&.
+.PP
+Referenced by main()\&.
+.SS "void* thread2 (void * arg)"
+
+.PP
+Codice del thread2 Il thread fa Pong e fa UP sul semaforo dell`altro thread\&. 
+.PP
+Definition at line 39 of file semthread\&.c\&.
+.PP
+References s1, and s2\&.
+.PP
+Referenced by main()\&.
+.SH "Variable Documentation"
+.PP 
+.SS "sem_t s1\fC [static]\fP"
+
+.PP
+Definition at line 17 of file semthread\&.c\&.
+.PP
+Referenced by main(), thread1(), and thread2()\&.
+.SS "sem_t s2\fC [static]\fP"
+
+.PP
+Definition at line 17 of file semthread\&.c\&.
+.PP
+Referenced by main(), thread1(), and thread2()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

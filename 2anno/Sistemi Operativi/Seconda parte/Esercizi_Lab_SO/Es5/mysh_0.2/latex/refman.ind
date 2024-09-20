@@ -1,0 +1,56 @@
+\begin{theindex}
+
+  \item {comando}
+    \subitem {mysh-\/0.\+2.\+c}, 8
+
+  \indexspace
+
+  \item {esegui}
+    \subitem {mysh-\/0.\+2.\+c}, 6
+
+  \indexspace
+
+  \item {get\+\_\+command}
+    \subitem {mysh-\/0.\+2.\+c}, 6
+
+  \indexspace
+
+  \item {M\+A\+X\+P\+A\+R\+A\+MS}
+    \subitem {mysh-\/0.\+2.\+c}, 6
+  \item {M\+A\+X\+P\+A\+TH}
+    \subitem {mysh-\/0.\+2.\+c}, 6
+  \item {main}
+    \subitem {mysh-\/0.\+2.\+c}, 6
+  \item {mysh-\/0.\+2.\+c}, 5
+    \subitem {comando}, 8
+    \subitem {esegui}, 6
+    \subitem {get\+\_\+command}, 6
+    \subitem {M\+A\+X\+P\+A\+R\+A\+MS}, 6
+    \subitem {M\+A\+X\+P\+A\+TH}, 6
+    \subitem {main}, 6
+    \subitem {path}, 8
+    \subitem {string2vpunt}, 7
+    \subitem {vpunt\+\_\+print}, 7
+    \subitem {which}, 7
+
+  \indexspace
+
+  \item {path}
+    \subitem {mysh-\/0.\+2.\+c}, 8
+
+  \indexspace
+
+  \item {string2vpunt}
+    \subitem {mysh-\/0.\+2.\+c}, 7
+
+  \indexspace
+
+  \item {vpunt\+\_\+print}
+    \subitem {mysh-\/0.\+2.\+c}, 7
+
+  \indexspace
+
+  \item {which}
+    \subitem {mysh-\/0.\+2.\+c}, 7
+
+\end{theindex}

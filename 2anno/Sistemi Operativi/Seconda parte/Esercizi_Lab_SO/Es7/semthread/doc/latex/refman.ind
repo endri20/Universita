@@ -1,0 +1,26 @@
+\begin{theindex}
+
+  \item {main}
+    \subitem {semthread.\+c}, \hyperpage{5}
+
+  \indexspace
+
+  \item {s1}
+    \subitem {semthread.\+c}, \hyperpage{6}
+  \item {s2}
+    \subitem {semthread.\+c}, \hyperpage{6}
+  \item {semthread.\+c}, \hyperpage{5}
+    \subitem {main}, \hyperpage{5}
+    \subitem {s1}, \hyperpage{6}
+    \subitem {s2}, \hyperpage{6}
+    \subitem {thread1}, \hyperpage{5}
+    \subitem {thread2}, \hyperpage{6}
+
+  \indexspace
+
+  \item {thread1}
+    \subitem {semthread.\+c}, \hyperpage{5}
+  \item {thread2}
+    \subitem {semthread.\+c}, \hyperpage{6}
+
+\end{theindex}

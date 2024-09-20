@@ -1,0 +1,37 @@
+Report dell'attività di setup dei nodi IPv6 e utilizzo dei comandi di rete per IPv6
+
+1. Creazione della rete IPv6:
+	Comando:
+	   	docker network create --ipv6 --subnet 2001:760::/112 ip6net
+	  	 NETWORK ID NAME DRIVER SCOPE
+	  	 dfa3669c4d4a ip6net bridge local
+
+
+2. Associazione della rete ai container:
+	Comando:
+		docker run -d --name ns62 --network ip6net nginx-ssh
+		docker run -d --name ns63 --network ip6net nginx-ssh	
+
+
+3. Verifica degli indirizzi IPv6 assegnati ai container:
+	Comando:
+		docker exec ns62 ip a
+		docker exec ns63 ip a
+
+4. Test di ping IPv6 tra i container:
+	Comando:
+		docker exec ns62 ping6 2001:760::3
+		64 bytes from 2001:760::3: icmp_seq=1 ttl=64 time=0.079 ms
+
+5. Utilizzo di curl per richiedere una pagina web tramite IPv6:
+	Comando:
+		docker exec ns62 curl [2001:760::63]/provaa.html
+		
+6. Connessione SSH tramite IPv6:
+	Comando:
+		ssh ubuntu@2001:760::63
+
+7. Sniffing del traffico IPv6:
+	Comando:	
+		docker exec ns62 tcpdump -nn ip6	
+

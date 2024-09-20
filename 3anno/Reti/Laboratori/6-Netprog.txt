@@ -1,0 +1,66 @@
+SOCKET
+
+
+root@LinuxUbuntu:/home/ubuntu# wget didattica-linux.unipr.it/home/roberto.alfieri@unipr.it/matdid/RETI/NetProg.tgz
+root@LinuxUbuntu:/home/ubuntu# tar xzvf NetProg.tgz
+root@LinuxUbuntu:/home/ubuntu# nano compose.yaml
+Dentro compose.yaml, inserisci la configurazione fornita dal professore, modificando le porte come indicato nel mio elenco (la mia è "28").
+
+
+
+root@LinuxUbuntu:/home/ubuntu# docker-compose -f compose.yaml up
+root@LinuxUbuntu:/home/ubuntu# docker exec -it ns2 bash
+root@ns2:/# nano ./etc/hosts
+Aggiungi l'associazione IP-nome, ad esempio: 172.17.0.3 ns3.
+
+
+root@ns2:/# cd ./NetProg/socket/
+root@ns2:/NetProg/socket# python3 gethostbyname.py ns3 
+172.17.0.3
+root@ns2:/NetProg/socket# python3 gethostbyaddr.py ns3
+gethostbyaddr  ns3
+('ns3', [], ['172.17.0.3'])
+root@ns2:/NetProg/socket# cat /etc/nsswitch.conf 
+
+
+UDP
+DGRAM
+
+
+root@ns2:/NetProg/udp# python3 dgram_server.py -s 172.17.0.2 -p 9028
+   port: 9028   server: 172.17.0.2 bufsize: 1024
+
+root@ns3:/NetProg/udp# python3 dgram_client.py -s "172.17.0.2" -p 9028 -m "Endri"
+OPTIONS  server: 172.17.0.2  - port: 9028  - bufsize: 100
+sent  15  Bytes 
+
+(ns2) addr: ('172.17.0.3', 50145)  data: Endri
+
+
+ECHO
+
+
+root@ns2:/NetProg/udp# python3 echo_server.py -s 172.17.0.2 -p 9028
+   port: 9028   server: 172.17.0.2 bufsize: 1024
+
+root@ns3:/NetProg/udp# python3 echo_client.py -s "172.17.0.2" -p 9028 -m "Endri"
+OPTIONS  server: 172.17.0.2  - port: 9028  - message: Endri
+to:  ('172.17.0.2', 9028)   - data:  Endri
+from: ('172.17.0.2', 9028) - data: Endri
+
+(ns2) from: ('172.17.0.3', 59933)  data: Endri
+to: ('172.17.0.3', 59933)   data: Endri
+
+
+ECHO prob
+
+
+root@ns2:/NetProg/udp# python3 echo_server.py -s 172.17.0.2 -p 9028
+   port: 9028   server: 172.17.0.2 bufsize: 1024
+
+root@ns3:/NetProg/udp# python3 echo_client_prob.py -s "172.17.0.2" -p 9028 -t 10 -m "Endri"
+Message to:  ('172.17.0.2', 9028)  - data:  Endri
+Message from: ('172.17.0.2', 9028) - data: Endri
+
+(ns2) from: ('172.17.0.3', 51551)  data: Endri
+to: ('172.17.0.3', 51551)   data: Endri

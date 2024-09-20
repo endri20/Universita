@@ -1,0 +1,38 @@
+Nuova Installazione Linux:
+-Sistema operativo: Ubuntu 20.04 LTS
+-Strumento di virtualizzazione:UTM(supportato dal chip M1)
+-Pacchetti di rete installati:traceroute, whois, nmap, wget, curl, tcpdump, tshark, net-tools, iputils-ping, dnsutils
+-Versione Docker 25.0.4
+
+Aspetti principali delle attivitÃ  svolte:
+
+-Installazione di una nuova istanza ubuntu sulla macchina virtuale.
+
+-Successivamente sono stati aggiunti i pacchetti di rete cosngiliati:
+		traceroute: È uno strumento che permette di tracciare il percorso seguito dai pacchetti di dati da un punto a un altro lungo una rete IP. 
+			    È utile per individuare eventuali problemi di routing o per comprendere meglio la topologia di una rete.
+		whois: Consente di ottenere informazioni sui registranti di nomi di dominio Internet e blocchi di indirizzi IP. 
+		       Può essere utilizzato per identificare il proprietario di un sito web o di un indirizzo IP.
+		nmap: È uno scanner di rete utilizzato per scoprire i dispositivi sulla rete e determinare quali porte sono aperte sui dispositivi target. 
+		      Può essere impiegato per l'analisi di sicurezza e il monitoraggio della rete.
+		wget e curl: Sono entrambi strumenti utilizzati per scaricare file da server web. 
+			     Possono essere impiegati per automatizzare il download di risorse da Internet tramite la riga di comando.
+		tcpdump e tshark: Sono strumenti per la cattura e l'analisi del traffico di rete. 
+				  Consentono di monitorare e analizzare il flusso dei pacchetti di dati sulla rete, utile per la diagnosi dei problemi e per la sicurezza informatica.
+		net-tools: È una raccolta di strumenti di rete classici, come ifconfig e netstat, utilizzati per la configurazione e la gestione delle
+			   interfacce di rete e per ottenere informazioni sullo stato della rete.
+		iputils-ping: È un'implementazione del comando ping, utilizzato per verificare la connettività di rete con un host specifico tramite l'invio di pacchetti ICMP di tipo echo request.
+		dnsutils: È un insieme di strumenti per la gestione e l'analisi dei servizi DNS (Domain Name System), inclusi comandi come nslookup per 
+			  la risoluzione dei nomi di dominio e dig per l'interrogazione 			  avanzata dei server DNS.
+
+-Installato il docker eseguendo le istruzioni fornite:
+		Client Docker Engine - Community
+		 Version:	25.04
+		 Api version: 	1.44
+		 Go version: 	go1.21.8
+		 Git commit:	1a576c6
+		 Built:		Were Mar 6 16:32:18 2024
+		 OS/Arch:	linux/arm64
+		 Context: 	default
+
+-Infine, ho creato una nuova immagine docker seguendo le specifiche delle slide e ho verificato il funzionamento eseguendo due container interattivi.
